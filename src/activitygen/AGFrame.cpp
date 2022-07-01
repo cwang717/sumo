@@ -71,6 +71,9 @@ void AGFrame::fillOptions() {
     oc.addSynonyme("output-file", "output", true);
     oc.addDescription("output-file", TL("Output"), TL("Write generated trips to FILE"));
 
+    oc.doRegister("household-file", new Option_FileName());
+    oc.addDescription("household-file", "Output", "Write generated households to FILE");
+
     oc.doRegister("debug", new Option_Bool(false));
     oc.addDescription("debug", "Report",
                       "Detailed messages about every single step");

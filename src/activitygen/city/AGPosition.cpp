@@ -106,6 +106,15 @@ AGPosition::getPosition() const {
     return position;
 }
 
+double
+AGPosition::getX() const {
+    return pos2d.x();
+}
+
+double
+AGPosition::getY() const {
+    return pos2d.y();
+}
 
 double
 AGPosition::randomPositionInStreet(const AGStreet& s) {

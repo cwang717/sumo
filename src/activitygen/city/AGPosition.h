@@ -123,6 +123,18 @@ public:
      */
     double minDistanceTo(const std::map<int, AGPosition>& positions) const;
 
+    /** @brief Get x in pos2d.
+     * 
+     * @return the x value
+     */
+    double getX() const;
+
+    /** @brief Get y in pos2d.
+     * 
+     * @return the y value
+     */
+    double getY() const;
+
     /** @brief Prints out a summary of the properties of this class
      * on standard output.
      */

@@ -120,7 +120,7 @@ main(int argc, char* argv[]) {
         AGTime duration(oc.getInt("duration-d"), 0, 0);
         AGTime begin(oc.getInt("begin") % 86400);
         AGTime end(oc.getInt("end") % 86400);
-        AGActivityGen actiGen(statFile, OutputDevice::getDevice(oc.getString("output-file")), net);
+        AGActivityGen actiGen(statFile, OutputDevice::getDevice(oc.getString("output-file")), OutputDevice::getDevice(oc.getString("household-file")), net);
         actiGen.importInfoCity();
         actiGen.makeActivityTrips(duration.getDay(), begin.getTime(), end.getTime());
 

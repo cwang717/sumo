@@ -9,6 +9,8 @@ set(activitygen_SRCS
    AGActivityGenHandler.h
    AGActivityTripWriter.cpp
    AGActivityTripWriter.h
+   AGHouseholdWriter.cpp
+   AGHouseholdWriter.h
    AGFrame.cpp
    AGFrame.h
 )

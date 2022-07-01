@@ -34,6 +34,7 @@
 #include "city/AGPosition.h"
 #include "activities/AGActivities.h"
 #include "AGActivityTripWriter.h"
+#include "AGHouseholdWriter.h"
 #include "city/AGTime.h"
 
 
@@ -127,6 +128,16 @@ AGActivityGen::varDepTime(AGTrip& trip) const {
     }
 }
 
+void AGActivityGen::outputHousehold() {
+    AGHouseholdWriter ahw(outputHPFile);
+    if (city.households.size() != 0) {
+        for (std::list<AGHousehold>::iterator it = city.households.begin(); it != city.households.end(); ++it) {
+            ahw.addHousehold(*it);
+        }
+    } else {
+        std::cout << "no households are generated" << std::endl;
+    }
+}
 
 void
 AGActivityGen::generateOutputFile(std::list<AGTrip>& trips) {
@@ -243,6 +254,8 @@ AGActivityGen::makeActivityTrips(int days, int beginSec, int endSec) {
      * trip file generation
      */
     generateOutputFile(expTrips);
+
+    outputHousehold();
 }
 
 

@@ -52,9 +52,10 @@ public:
      * @param[in] output xml file in which we'll write the routes generated
      * @param[in] net network of the city
      */
-    AGActivityGen(std::string input, OutputDevice& output, RONet* net) :
+    AGActivityGen(std::string input, OutputDevice& output, OutputDevice& hp_output, RONet* net) :
         inputFile(input),
         outputFile(output),
+        outputHPFile(hp_output),
         net(net),
         //activities(),
         city(net) {};
@@ -85,6 +86,8 @@ protected:
     std::string inputFile;
     /// @brief The generated routes
     OutputDevice& outputFile;
+    /// @brief The generated household and population info
+    OutputDevice& outputHPFile;
     // @brief network of the city
     RONet* net;
     //Activities activities;
@@ -102,6 +105,11 @@ protected:
      * for this begin, end and duration of the simulation must be defined
      */
     bool timeTripValidation(const AGTrip& trip) const;
+    /**
+     * @brief generate a summary of the household info
+     * 
+     */
+    void outputHousehold();
     /**
      * @brief generate the output file (trips or routes) using a trip list
      *
